@@ -2,7 +2,9 @@
 
 **CausalCompass** is a flexible and extensible benchmark suite for evaluating the robustness of **time-series causal discovery (TSCD)** methods under **misspecified modeling assumptions**.
 
-![](./images/nonlinear_15_500_f10_auprc_avg_scen_01.png)
+![Comparison](./images/nonlinear_15_500_f10_auprc_avg_scen_01.png)
+
+---
 
 ## Table of Contents
 
