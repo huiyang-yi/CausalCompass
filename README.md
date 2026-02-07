@@ -8,38 +8,46 @@
 
 ## Table of Contents
 
-- [Overview](#overview)
+- [Abstract](#abstract)
+- [Key Features](#key-features)
 - [Data Generation](#data-generation)
+  - [Quick Start](#quick-start)
+  - [Example: Generate Measurement Error Data](#example-generate-measurement-error-data)
+  - [Generated Data Structure](#generated-data-structure)
 - [Benchmark Scenarios](#benchmark-scenarios)
 - [Running Experiments](#running-experiments)
+  - [Automated Experiment Execution](#automated-experiment-execution)
 - [Result Analysis](#result-analysis)
+  - [Generating LaTeX Tables](#generating-latex-tables)
+  - [Generating Origin Data Files](#generating-origin-data-files)
 - [Project Structure](#project-structure)
-- [Key Findings](#key-findings)
 - [Citation](#citation)
 - [License](#license)
 - [Contributing](#contributing)
 - [Availability](#availability)
 - [Contact](#contact)
 
----
+## Abstract
 
-## Overview
+Causal discovery from time series is a fundamental task in machine learning. However, its widespread adoption is hindered by a reliance on untestable causal assumptions and by the lack of robustness-oriented evaluation in existing benchmarks. To address these challenges, we propose **CausalCompass**, a flexible and extensible benchmark suite designed to assess the robustness of time-series causal discovery (TSCD) methods under violations of modeling assumptions. To demonstrate the practical utility of CausalCompass, we conduct extensive benchmarking of representative TSCD algorithms across eight assumption-violation scenarios. Our experimental results indicate that no single method consistently attains optimal performance across all settings. Nevertheless, the methods exhibiting superior overall performance across diverse scenarios are almost invariably deep learning-based approaches. We further provide hyperparameter sensitivity analyses to deepen the understanding of these findings. We also find, somewhat surprisingly, that NTS-NOTEARS relies heavily on standardized preprocessing in practice, performing poorly in the vanilla setting but exhibiting strong performance after standardization. Finally, our work aims to provide a comprehensive and systematic evaluation of TSCD methods under assumption violations, thereby facilitating their broader adoption in real-world applications.
 
-CausalCompass includes:
+## Key Features
 
-- **8 assumption-violation scenarios**: Confounders, nonstationarity, measurement error, standardization, missing data, mixed data, min-max normalization, and trend/seasonality.
-- **2 vanilla models**: VAR (linear) and Lorenz-96 (nonlinear).
-- **11 TSCD algorithms spanning six major methodological categories**:
+- **8 assumption-violation scenarios**: Confounders, nonstationarity, measurement error, standardization, missing data, mixed data, min-max normalization, and trend/seasonality
+- **2 vanilla models**: VAR (linear) and Lorenz-96 (nonlinear)
+- **11 TSCD algorithms spanning 6 major methodological categories**:
   - **Granger causality-based**: VAR, LGC
   - **Constraint-based**: PCMCI
   - **Noise-based**: VARLiNGAM
   - **Score-based**: DYNOTEARS, NTS-NOTEARS
   - **Topology-based**: TSCI
-  - **Deep learning–based**: cMLP, cLSTM, CUTS, CUTS+
-- **Reproducible experimental protocols** with multiple random seeds.
-- **Automated experiment execution** via shell scripts for all algorithms.
-- **Result processing utilities:**
-  - LaTeX table generation for paper-ready results
+  - **Deep learning-based**: cMLP, cLSTM, CUTS, CUTS+
+- **Rigorous experimental protocols**:
+  - Multiple random seeds for statistical reliability
+  - Comprehensive hyperparameter grids
+- **Automated infrastructure**:
+  - Shell scripts for reproducible experiment execution
+  - LaTeX table generation for publication-ready results
   - Origin-compatible data export for radar plots
 
 ---
@@ -269,20 +277,6 @@ CausalCompass/
 │
 └── README.md               # This file
 ```
-
----
-
-## Key Findings
-
-Our comprehensive evaluation reveals:
-
-1. **No universal winner**: No single TSCD method achieves optimal performance across all assumption-violation scenarios.
-
-2. **Deep learning advantages**: Methods exhibiting superior overall robustness are predominantly deep learning-based approaches.
-
-3. **Preprocessing sensitivity**: NTS-NOTEARS shows strong dependence on standardization, performing poorly on vanilla data but excelling after standardization.
-
-4. **Hyperparameter tuning**: Deep learning methods require more careful hyperparameter selection in linear settings but demonstrate greater stability in nonlinear scenarios.
 
 ---
 
