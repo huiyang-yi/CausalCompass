@@ -123,7 +123,7 @@ Example: `confounder_rho0.5_VAR_p10_T1000_seed0.npz`
 Each `.npz` file contains:
 
 - `data`: Time series observations (T × D)
-- `gc`: Ground truth Granger causality graph (D × D)
+- `gc`: Ground truth causality graph (D × D)
 - Additional scenario-specific metadata
 
 The `datasets/` directory contains sample datasets. Complete datasets can be generated using the provided scripts.
