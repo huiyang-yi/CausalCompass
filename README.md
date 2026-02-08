@@ -2,8 +2,9 @@
 
 **CausalCompass** is a flexible and extensible benchmark suite for evaluating the robustness of **time-series causal discovery (TSCD)** methods under **misspecified modeling assumptions**.
 
-
-<img src="./images/nonlinear_15_500_f10_auprc_avg_scen_01.png" width="700" alt="Performance Comparison">
+<p align="center">
+  <img src="./images/nonlinear_15_500_f10_auprc_avg_scen_01.png" width="700" alt="AUPRC Performance Radar Plot">
+</p>
 
 ---
 
@@ -126,7 +127,7 @@ Each `.npz` file contains:
 - `gc`: Ground truth Granger causality graph (D × D)
 - Additional scenario-specific metadata
 
-The `datasets/` directory contains sample datasets. Complete datasets will be provided upon acceptance.
+The `datasets/` directory contains sample datasets. Complete datasets will be provided upon paper acceptance.
 
 ---
 
@@ -296,7 +297,7 @@ If you use this code or datasets in your research, please cite:
 
 ---
 
-**Note:**  This citation is anonymized for the review process. The complete author list and final bibliographic information will be released upon acceptance.
+**Note:** The complete author list and final bibliographic information will be released upon paper acceptance.
 
 ## License
 
@@ -316,5 +317,3 @@ The full codebase will be publicly released upon paper acceptance.
 ## Contact
 
 For questions or issues, please open an issue in this repository.
-
-**Note**: This repository is anonymized for review. Full author information will be added upon acceptance.
