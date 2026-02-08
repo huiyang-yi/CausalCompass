@@ -279,7 +279,7 @@ CausalCompass/
 └── README.md               # This file
 ```
 
-------
+---
 
 ## Citation
 
@@ -311,4 +311,7 @@ Contributions are welcome! If you encounter bugs, have suggestions for improveme
 
 ## Contact
 
-For questions or issues, please open an issue in this repository.
+For questions or issues, please:
+
+- Open an issue in this repository
+- Email: yihuiyang@seu.edu.cn 
