@@ -26,7 +26,6 @@
 - [Citation](#citation)
 - [License](#license)
 - [Contributing](#contributing)
-- [Availability](#availability)
 - [Contact](#contact)
 
 ## Abstract
@@ -127,7 +126,7 @@ Each `.npz` file contains:
 - `gc`: Ground truth Granger causality graph (D × D)
 - Additional scenario-specific metadata
 
-The `datasets/` directory contains sample datasets. Complete datasets will be provided upon paper acceptance.
+The `datasets/` directory contains sample datasets. Complete datasets can be generated using the provided scripts.
 
 ---
 
@@ -258,7 +257,7 @@ CausalCompass/
 │   ├── standardized.py     # z-score and min-max scenario
 │   └── trendseason.py      # Trend and seasonality scenario
 │
-├── datasets/               # Generated datasets 
+├── datasets/               # Sample datasets (fully reproducible via scripts) 
 │   └── [scenario]/         # Organized by scenario
 │
 ├── scripts/                # Experiment execution scripts
@@ -280,24 +279,24 @@ CausalCompass/
 └── README.md               # This file
 ```
 
----
+------
 
 ## Citation
 
 If you use this code or datasets in your research, please cite:
 
 ```bibtex
-@misc{causalcompass2026_anonymous,
-  title={CausalCompass: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
-  author={Anonymous},
-  year={2026},
-  note={Under review as a conference paper},
+@misc{yi2026causalcompass,
+  title   = {{CausalCompass}: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
+  author  = {Yi, Huiyang and Shen, Xiaojian and Wu, Yonggang and Chen, Duxin and Wang, He and Yu, Wenwu},
+  year    = {2026},
+  note    = {Under review as a conference paper}
 }
 ```
 
 ---
 
-**Note:** The complete author list and final bibliographic information will be released upon paper acceptance.
+**Note:** The final bibliographic information (e.g., venue and proceedings details) will be updated upon paper acceptance.
 
 ## License
 
@@ -309,10 +308,6 @@ If you use this code or datasets in your research, please cite:
 ## Contributing
 
 Contributions are welcome! If you encounter bugs, have suggestions for improvements, or would like to extend CausalCompass with additional assumption-violation scenarios or evaluation protocols, please feel free to open an issue or submit a pull request. 
-
-## Availability
-
-The full codebase will be publicly released upon paper acceptance.
 
 ## Contact
 
