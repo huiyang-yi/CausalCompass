@@ -16,6 +16,7 @@
   - [Quick Start](#quick-start)
   - [Example: Generate Measurement Error Data](#example-generate-measurement-error-data)
   - [Generated Data Structure](#generated-data-structure)
+  - [Full Datasets Download](#full-datasets-download)
 - [Benchmark Scenarios](#benchmark-scenarios)
 - [Running Experiments](#running-experiments)
   - [Automated Experiment Execution](#automated-experiment-execution)
@@ -128,6 +129,11 @@ Each `.npz` file contains:
 
 The `datasets/` directory contains sample datasets. Complete datasets can be generated using the provided scripts.
 
+### Full Datasets Download
+
+For convenience and reproducibility, the complete datasets archive is publicly available at
+[Google Drive](https://drive.google.com/file/d/1jpggkKcT6cBc4YQT5bQYPj68pD4ImOj3/view?usp=sharing).
+
 ---
 
 ## Benchmark Scenarios
@@ -137,6 +143,7 @@ The `datasets/` directory contains sample datasets. Complete datasets can be gen
 Standard VAR and Lorenz-96 systems without assumption violations.
 
 ### 2. Confounders
+
 Hidden confounders create spurious correlations between observed variables.
 
 ### 3. Measurement Error
