@@ -1,0 +1,92 @@
+# === Python 基础 ===
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# === 虚拟环境 ===
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# === AI/机器学习 特有 (核心部分) ===
+# 建议将原始数据和预训练模型放在特定目录下并忽略
+data/
+models/
+weights/
+checkpoints/
+/datasets
+
+# 常见的权重文件格式
+*.pth
+*.pt
+*.ckpt
+*.h5
+*.pb
+*.onnx
+*.weights
+*.model
+*.bin
+*.pkl
+*.joblib
+
+# === 日志与可视化 ===
+logs/
+runs/
+wandb/
+.tensorboard/
+lightning_logs/
+*.log
+
+# === Jupyter Notebook ===
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+*.ts
+.virtual_documents/
+
+# === 环境变量与密钥 (重要！) ===
+# 存放 API Keys (如 OpenAI, HuggingFace token) 的文件必须忽略
+.env
+.env.*
+!.env.example
+secrets.yaml
+
+# === IDE 与 系统文件 ===
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+.claude/
+tests/
+*.swp
+*.swo
+.DS_Store
+
+# === Docker (如果你的项目涉及容器化) ===
+.dockerignore
+
+# Sphinx Docs
+build/
+_build/
+temp/
