@@ -5,6 +5,7 @@
 
 
 <p align="center">
+  <a href="https://huiyang-yi.github.io/CausalCompass/"><img src="https://img.shields.io/badge/Project-Page-brightgreen" alt="Project Page"></a>
   <a href="https://arxiv.org/abs/2602.07915"><img src="https://img.shields.io/badge/arXiv-2602.07915-b31b1b.svg" alt="arXiv"></a>
   <a href="https://causalcompass.readthedocs.io/en/latest/index.html"><img src="https://img.shields.io/badge/View-Documentation-blue" alt="Documentation"></a>
   <a href="https://pypi.org/project/causalcompass/"><img src="https://img.shields.io/pypi/v/causalcompass" alt="PyPI"></a>
