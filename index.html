@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CausalCompass Project Page</title>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Google Sans', sans-serif;
+      background-color: #f0f2f5;
+      color: #333;
+      margin: 0;
+      padding: 40px 0;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    .authors { text-align: center; font-size: 18px; margin-bottom: 10px; }
+    .authors span { color: #007bff; text-decoration: none; font-weight: 500; }
+    .sup { vertical-align: super; font-size: smaller; }
+
+    .affiliations {
+      text-align: center;
+      font-size: 15px;
+      color: #666;
+      margin-bottom: 30px;
+      font-style: italic;
+    }
+
+    h2 {
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+      margin-top: 50px;
+      color: #333;
+    }
+
+    .abstract-text {
+      font-size: 16px;
+      text-align: justify;
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .teaser-img {
+      width: 100%;
+      max-width: 100%;
+      display: block;
+      margin: 30px auto;
+      border-radius: 5px;
+    }
+
+    .caption {
+      text-align: center;
+      color: #666;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    .summary-img {
+      width: 40%;
+      max-width: 40%;
+    }
+
+    pre {
+      background: #2d2d2d;
+      color: #ccc;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-family: 'Consolas', 'Monaco', monospace;
+      font-size: 14px;
+    }
+
+    .links { text-align: center; margin-bottom: 40px; }
+    .btn {
+      display: inline-block;
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 0 5px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn:hover { background-color: #555; }
+    .btn-disabled { background-color: #ccc; cursor: not-allowed; pointer-events: none; }
+
+    @media (max-width: 720px) {
+      body { padding: 24px 0; }
+      .container { padding: 26px; }
+      h1 { font-size: 26px; }
+      .authors { font-size: 16px; }
+      .affiliations { font-size: 14px; }
+      .summary-img { width: 100%; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CausalCompass: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios</h1>
+
+    <div class="authors">
+      <span>Huiyang Yi</span><span class="sup">1</span>,
+      <span>Xiaojian Shen</span><span class="sup">2</span>,
+      <span>Yonggang Wu</span><span class="sup">1</span>,
+      <span>Duxin Chen</span><span class="sup">1,†</span>,
+      <span>He Wang</span><span class="sup">1</span>,
+      <span>Wenwu Yu</span><span class="sup">1</span>
+    </div>
+
+    <div class="affiliations">
+      <span class="sup">1</span>Southeast University &nbsp;&nbsp;
+      <span class="sup">2</span>Jilin University &nbsp;&nbsp;
+      <span class="sup">†</span>Corresponding Author
+    </div>
+
+    <div class="links">
+      <a href="#" class="btn btn-disabled">Paper (Under Review)</a>
+      <a href="https://github.com/shenxiaojian/CausalCompass" class="btn">GitHub Repo</a>
+    </div>
+
+    <h2>Abstract</h2>
+    <p class="abstract-text">
+      Causal discovery from time series is a fundamental task in machine learning. However, its widespread adoption
+      is hindered by a reliance on untestable causal assumptions and by the lack of robustness-oriented evaluation in
+      existing benchmarks. To address these challenges, we propose <strong>CausalCompass</strong>, a flexible and
+      extensible benchmark suite designed to assess the robustness of time-series causal discovery methods under
+      violations of modeling assumptions. Our experimental results indicate that no single method consistently
+      attains optimal performance across all settings; methods with superior overall performance are almost
+      invariably deep learning-based. We also provide hyperparameter sensitivity analyses and highlight the strong
+      dependence of NTS-NOTEARS on standardized preprocessing.
+    </p>
+
+    <h2>Overview</h2>
+    <p class="caption">
+      <strong>Table 1:</strong> Summary of the assumptions associated with each algorithm and the types of causal graphs they are designed to recover.
+    </p>
+    <img src="./images/assumptions.png" class="teaser-img" alt="Assumption Table">
+
+    <h2>Experimental Results</h2>
+    <img src="./images/results1.png" class="teaser-img" alt="Experimental Results 1">
+    <p class="caption"><strong>Figure 1:</strong> Linear and nonlinear settings across vanilla and eight assumption-violation scenarios (10 nodes, T = 1000).</p>
+
+    <img src="./images/results3.png" class="teaser-img" alt="Experimental Results 3">
+    <p class="caption"><strong>Figure 3:</strong> Nonlinear settings across vanilla and eight assumption-violation scenarios (10 nodes, F = 40).</p>
+
+    <img src="./images/results2.png" class="teaser-img" alt="Experimental Results 2">
+    <p class="caption"><strong>Figure 5:</strong> Linear and nonlinear settings across vanilla and eight assumption-violation scenarios (15 nodes, T = 1000).</p>
+
+    <img src="./images/results4.png" class="teaser-img" alt="Experimental Results 4">
+    <p class="caption"><strong>Figure 6:</strong> Nonlinear settings across vanilla and eight assumption-violation scenarios (15 nodes, F = 40).</p>
+
+    <p class="caption"><strong>Table 3:</strong> Summary of methods' performances across all scenarios and configurations.</p>
+    <img src="./images/summary_results.png" class="teaser-img summary-img" alt="Summary of methods performances">
+
+    <h2>Citation</h2>
+    <pre>@misc{yi2026causalcompass,
+  title   = {{CausalCompass}: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
+  author  = {Yi, Huiyang and Shen, Xiaojian and Wu, Yonggang and Chen, Duxin and Wang, He and Yu, Wenwu},
+  year    = {2026},
+  note    = {Under review as a conference paper}
+}
+</pre>
+  </div>
+</body>
+</html>
