@@ -81,8 +81,8 @@ If you use this code or datasets in your research, please cite:
 License
 ^^^^^^^
 
-* The code in this repository is released under the `MIT License <./LICENSE>`_.
-* The datasets generated and provided by this repository are released under the `CC BY 4.0 License <./LICENSE-CC-BY-4.0>`_.
+* The code in this repository is released under the `MIT License <https://github.com/huiyang-yi/CausalCompass/blob/main/LICENSE>`_.
+* The datasets generated and provided by this repository are released under the `CC BY 4.0 License <https://github.com/huiyang-yi/CausalCompass/blob/main/LICENSE-CC-BY-4.0>`_.
 
 
 Contributing
