@@ -60,7 +60,7 @@ If you use this code or datasets in your research, please cite:
 
 ```bibtex
 @misc{yi2026causalcompass,
-  title   = {{CausalCompass}: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
+  title   = {{CausalCompass}}: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
   author  = {Yi, Huiyang and Shen, Xiaojian and Wu, Yonggang and Chen, Duxin and Wang, He and Yu, Wenwu},
   year    = {2026},
   note    = {Under review as a conference paper}
