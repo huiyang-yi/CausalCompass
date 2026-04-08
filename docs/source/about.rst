@@ -1,16 +1,22 @@
+.. |ProjectPage| image:: https://img.shields.io/badge/Project-Page-brightgreen
+   :target: https://huiyang-yi.github.io/CausalCompass/
+
 .. |arXiv| image:: https://img.shields.io/badge/arXiv-2602.07915-b31b1b.svg
    :target: https://arxiv.org/abs/2602.07915
 
 .. |Documentation| image:: https://img.shields.io/badge/View-Documentation-blue
-   :target: https://causalegm.readthedocs.io/en/latest/index.html
+   :target: https://causalcompass.readthedocs.io/en/latest/index.html
 
-.. |PyPI| image:: https://img.shields.io/pypi/v/causalchamber
-   :target: https://pypi.org/project/causalchamber/
+.. |PyPI| image:: https://img.shields.io/pypi/v/causalcompass
+   :target: https://pypi.org/project/causalcompass/
+
+.. |GitHub| image:: https://img.shields.io/badge/GitHub-CausalCompass-black?logo=github
+   :target: https://github.com/huiyang-yi/CausalCompass
 
 .. |License| image:: https://img.shields.io/badge/License-MIT-yellow.svg
    :target: https://github.com/huiyang-yi/CausalCompass/blob/main/LICENSE
 
-|arXiv| |Documentation| |PyPI| |License|
+|ProjectPage| |arXiv| |Documentation| |PyPI| |GitHub| |License|
 
 ==============
 CausalCompass
