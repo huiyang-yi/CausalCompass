@@ -110,7 +110,18 @@ def generate_missing_var(
     seed : int, default 0
         Random seed
     missing_config : dict, default None
-        Configuration for missing pattern (see example below)
+        Configuration for the missing pattern.
+
+        Example
+        -------
+        ``missing_config = {"random_missing": {"missing_prob": 0.2,
+        "missing_var": "all"}}`` means each entry is missing with probability
+        ``0.2``. The ``random_missing`` pattern represents completely random
+        missingness. Here, ``missing_prob`` is the missing probability and
+        ``missing_var`` specifies which variables are allowed to be masked.
+        Setting ``missing_var`` to ``"all"`` applies random missingness to all
+        variables; alternatively, you can pass a list of variable indices such
+        as ``[0, 2, 4]`` to mask only selected variables.
     interp : str, default 'zoh'
         Interpolation method. Supported values are 'zoh', 'linear', and 'GP'.
 
@@ -160,8 +171,44 @@ def generate_missing_lorenz_96(
 
     Parameters
     ----------
+    p : int
+        Number of variables
+    T : int
+        Number of time points
+    F : float, default 10.0
+        Forcing parameter
+    delta_t : float, default 0.1
+        Time step for the Lorenz-96 simulator
+    sd : float, default 0.1
+        Noise standard deviation
+    burn_in : int, default 1000
+        Burn-in period
+    seed : int, default 0
+        Random seed
+    missing_config : dict, default None
+        Configuration for the missing pattern.
+
+        Example
+        -------
+        ``missing_config = {"random_missing": {"missing_prob": 0.2,
+        "missing_var": "all"}}`` means each entry is missing with probability
+        ``0.2``. The ``random_missing`` pattern represents completely random
+        missingness. Here, ``missing_prob`` is the missing probability and
+        ``missing_var`` specifies which variables are allowed to be masked.
+        Setting ``missing_var`` to ``"all"`` applies random missingness to all
+        variables; alternatively, you can pass a list of variable indices such
+        as ``[0, 2, 4]`` to mask only selected variables.
     interp : str, default 'zoh'
         Interpolation method. Supported values are 'zoh', 'linear', and 'GP'.
+
+    Returns
+    -------
+    tuple
+        (data_interp, data_masked, mask, GC, original_data) — interpolated time
+        series of shape (T, p, 1), masked time series of shape (T, p), missing
+        data mask of shape (T, p) where 1 indicates observed and 0 indicates
+        missing, ground-truth causal graph of shape (p, p), and original
+        complete time series of shape (T, p).
     """
     interp = normalize_missing_imputation_method(interp)
     if seed is not None:
