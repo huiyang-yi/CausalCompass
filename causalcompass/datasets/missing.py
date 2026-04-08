@@ -169,6 +169,10 @@ def generate_missing_lorenz_96(
     """
     Generate Lorenz-96 data with missing values and interpolation.
 
+    References
+    ----------
+    https://github.com/jarrycyx/UNN
+
     Parameters
     ----------
     p : int
