@@ -8,6 +8,7 @@
   <a href="https://huiyang-yi.github.io/CausalCompass/"><img src="https://img.shields.io/badge/Project-Page-brightgreen" alt="Project Page"></a>
   <a href="https://arxiv.org/abs/2602.07915"><img src="https://img.shields.io/badge/arXiv-2602.07915-b31b1b.svg" alt="arXiv"></a>
   <a href="https://causalcompass.readthedocs.io/en/latest/index.html"><img src="https://img.shields.io/badge/View-Documentation-blue" alt="Documentation"></a>
+  <a href="https://www.kaggle.com/datasets/anonymousauthors/assumption-violation-datasets/data"><img src="https://img.shields.io/badge/Datasets-Kaggle-20BEFF" alt="Datasets"></a>
   <a href="https://pypi.org/project/causalcompass/"><img src="https://img.shields.io/pypi/v/causalcompass" alt="PyPI"></a>
   <a href="https://github.com/huiyang-yi/CausalCompass"><img src="https://img.shields.io/badge/GitHub-CausalCompass-black?logo=github" alt="GitHub"></a>
   <a href="https://github.com/huiyang-yi/CausalCompass/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT"></a>
@@ -42,7 +43,7 @@ Causal discovery from time series is a fundamental task in machine learning. How
 ## Datasets
 
 The `datasets/` directory contains sample datasets. Complete datasets can be generated using the provided scripts. For convenience and reproducibility, the complete datasets archive is publicly available at
-[Google Drive](https://drive.google.com/file/d/1jpggkKcT6cBc4YQT5bQYPj68pD4ImOj3/view?usp=sharing).
+[Kaggle](https://www.kaggle.com/datasets/anonymousauthors/assumption-violation-datasets/data).
 
 The generated datasets follow the naming convention:
 

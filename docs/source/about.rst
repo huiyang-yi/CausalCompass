@@ -7,6 +7,9 @@
 .. |Documentation| image:: https://img.shields.io/badge/View-Documentation-blue
    :target: https://causalcompass.readthedocs.io/en/latest/index.html
 
+.. |Datasets| image:: https://img.shields.io/badge/Datasets-Kaggle-20BEFF
+   :target: https://www.kaggle.com/datasets/anonymousauthors/assumption-violation-datasets/data
+
 .. |PyPI| image:: https://img.shields.io/pypi/v/causalcompass
    :target: https://pypi.org/project/causalcompass/
 
@@ -16,7 +19,7 @@
 .. |License| image:: https://img.shields.io/badge/License-MIT-yellow.svg
    :target: https://github.com/huiyang-yi/CausalCompass/blob/main/LICENSE
 
-|ProjectPage| |arXiv| |Documentation| |PyPI| |GitHub| |License|
+|ProjectPage| |arXiv| |Documentation| |Datasets| |PyPI| |GitHub| |License|
 
 ==============
 CausalCompass
@@ -54,7 +57,7 @@ Datasets
 ^^^^^^^^
 
 The ``datasets/`` directory contains sample datasets. Complete datasets can be generated using the provided scripts. For convenience and reproducibility, the complete datasets archive is publicly available at
-`Google Drive <https://drive.google.com/file/d/1jpggkKcT6cBc4YQT5bQYPj68pD4ImOj3/view?usp=sharing>`_.
+`Kaggle <https://www.kaggle.com/datasets/anonymousauthors/assumption-violation-datasets/data>`_.
 
 The generated datasets follow the naming convention::
 
