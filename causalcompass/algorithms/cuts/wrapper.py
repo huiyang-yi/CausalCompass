@@ -21,17 +21,19 @@ class CUTS(BaseCausalAlgorithm):
         Training batch size
     weight_decay : float, default 0.001
         Controls the strength of regularization
+    lambda_s : float, default 0.1
+        Graph sparsity coefficient used during graph discovery
     device : str, default 'cuda'
         Computation device
 
     Examples
     --------
     >>> from causalcompass.algorithms import CUTS
-    >>> model = CUTS(input_step=10, batch_size=32, weight_decay=0.001, device='cuda')
+    >>> model = CUTS(input_step=10, batch_size=32, weight_decay=0.001, lambda_s=0.1, device='cuda')
     >>> predicted_adj = model.run(X, true_cm=true_adj, mask=mask, original_data=X)
     >>> all_metrics, no_diag_metrics = model.eval(true_adj, predicted_adj)
     """
-    def __init__(self, input_step=10, batch_size=32, weight_decay=0.001, device='cuda', seed=None, **kwargs):
+    def __init__(self, input_step=10, batch_size=32, weight_decay=0.001, lambda_s=0.1, device='cuda', seed=None, **kwargs):
         """
         Initialize CUTS
         """
@@ -42,6 +44,7 @@ class CUTS(BaseCausalAlgorithm):
             'cuts_input_step': input_step,
             'cuts_batch_size': batch_size,
             'cuts_weight_decay': weight_decay,
+            'cuts_lambda_s': lambda_s,
             'device': device
         }
 

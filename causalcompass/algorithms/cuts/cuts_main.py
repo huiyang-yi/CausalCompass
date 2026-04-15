@@ -80,8 +80,12 @@ class CUTS(object):
         self.start_tau = start_tau
         
         end_lmd, start_lmd = self.args.graph_discov.lambda_s_end, self.args.graph_discov.lambda_s_start
-        self.lambda_gamma = (end_lmd / start_lmd) ** (1 / self.args.total_epoch)
-        self.lambda_s = start_lmd
+        if start_lmd == 0 and end_lmd == 0:
+            self.lambda_gamma = 1.0
+            self.lambda_s = 0.0
+        else:
+            self.lambda_gamma = (end_lmd / start_lmd) ** (1 / self.args.total_epoch)
+            self.lambda_s = start_lmd
         
         
 

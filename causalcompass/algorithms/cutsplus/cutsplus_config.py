@@ -42,8 +42,8 @@ def create_cutsplus_config(args):
     opt.data_pred.prob = True
 
     opt.graph_discov = SimpleNamespace()
-    opt.graph_discov.lambda_s_start = 1e-2
-    opt.graph_discov.lambda_s_end = 1e-2
+    opt.graph_discov.lambda_s_start = getattr(args, 'cutsplus_lambda_s', 1e-2)
+    opt.graph_discov.lambda_s_end = getattr(args, 'cutsplus_lambda_s', 1e-2)
     opt.graph_discov.lr_graph_start = 1e-2
     opt.graph_discov.lr_graph_end = 1e-3
     opt.graph_discov.start_tau = 1
