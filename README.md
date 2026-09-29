@@ -2,7 +2,9 @@
 
 # CausalCompass: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios
 
-
+<div align="center">
+  <h3>NeurIPS 2026</h3>
+</div>
 
 <p align="center">
   <a href="https://huiyang-yi.github.io/CausalCompass/"><img src="https://img.shields.io/badge/Project-Page-brightgreen" alt="Project Page"></a>
@@ -110,20 +112,18 @@ print(f"NSHD (no diag): {no_diag_metrics['shd']:.3f}")  # shd stores normalized 
 
 ## Citation
 
-If you use this code or datasets in your research, please cite:
+If you find this work useful, please cite our paper:
 
 ```bibtex
-@misc{yi2026causalcompass,
-  title   = {{CausalCompass}: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
-  author  = {Yi, Huiyang and Shen, Xiaojian and Wu, Yonggang and Chen, Duxin and Wang, He and Yu, Wenwu},
-  year    = {2026},
-  note    = {Under review as a conference paper}
+@article{yi2026causalcompass,
+  title={CausalCompass: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
+  author={Yi, Huiyang and Shen, Xiaojian and Wu, Yonggang and Chen, Duxin and Wang, He and Yu, Wenwu},
+  journal={arXiv preprint arXiv:2602.07915},
+  year={2026}
 }
 ```
 
 ---
-
-**Note:** The final bibliographic information (e.g., venue and proceedings details) will be updated upon paper acceptance.
 
 ## License
 
