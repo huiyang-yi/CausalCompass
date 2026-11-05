@@ -76,12 +76,11 @@ If you use this code or datasets in your research, please cite:
 
 .. code-block:: bibtex
 
-   @inproceedings{yi2026causalcompass,
-     title = {{CausalCompass}: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
-     author = {Yi, Huiyang and Shen, Xiaojian and Wu, Yonggang and Chen, Duxin and Wang, He and Yu, Wenwu},
-     booktitle = {Advances in Neural Information Processing Systems},
-     year = {2026},
-     url = {https://arxiv.org/abs/2602.07915}
+   @article{yi2026causalcompass,
+     title={CausalCompass: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
+     author={Yi, Huiyang and Shen, Xiaojian and Wu, Yonggang and Chen, Duxin and Wang, He and Yu, Wenwu},
+     journal={arXiv preprint arXiv:2602.07915},
+     year={2026}
    }
 
 
