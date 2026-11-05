@@ -12,13 +12,15 @@ Huiyang Yi<sup>1</sup>, Xiaojian Shen<sup>2</sup>, Yonggang Wu<sup>1</sup>, Duxi
 
 **NeurIPS 2026**
 
+[![Datasets-Kaggle](https://img.shields.io/badge/Datasets-Kaggle-20BEFF)](https://www.kaggle.com/datasets/anonymousauthors/assumption-violation-datasets/data)
+
 ## Abstract
 
 Causal discovery from time series is a fundamental task in machine learning. However, its widespread adoption is hindered by a reliance on untestable causal assumptions and by the lack of robustness-oriented evaluation in existing benchmarks. To address these challenges, we propose CausalCompass, a flexible and extensible benchmark framework designed to assess the robustness of time-series causal discovery (TSCD) methods under violations of modeling assumptions. To demonstrate the practical utility of CausalCompass, we conduct extensive benchmarking of representative TSCD algorithms across eight assumption-violation scenarios. Our experimental results indicate that no single method consistently attains optimal performance across all settings. Nevertheless, in most scenarios, the methods exhibiting superior overall performance are deep learning-based approaches. We further provide hyperparameter sensitivity analyses to deepen the understanding of these findings. We additionally conduct ablation experiments to explain the strong performance of deep learning-based methods under assumption violations. We also find that NTS-NOTEARS relies on standardized preprocessing in practice, performing poorly in the vanilla setting but exhibiting strong performance after standardization. Finally, our work aims to provide a comprehensive and systematic evaluation of TSCD methods under assumption violations, thereby facilitating their broader adoption in real-world applications. The user-friendly implementation, documentation and datasets are available at https://github.com/huiyang-yi/CausalCompass.
 
 ## Overview
 
-Table 1: Summary of the assumptions associated with each algorithm and the types of causal graphs they are designed to recover. Each cell indicates whether an algorithm explicitly supports (✓) or does not support (✗) the specific condition listed in the corresponding row. "Sum." and "Win." refer to the summary causal graph and the window causal graph, respectively. CUTS+ outputs a summary graph.
+Table 1: Summary of the assumptions associated with each algorithm and the types of causal graphs they are designed to recover. Each cell indicates whether an algorithm explicitly supports (✓) or does not support (✗) the specific condition listed in the corresponding row.
 
 <img src="./images/assumptions.png" width="900" alt="Assumption Table">
 
@@ -61,12 +63,11 @@ Table 2: Summary of methods' performances across all scenarios and configuration
 If you use this code or datasets in your research, please cite:
 
 ```bibtex
-@inproceedings{yi2026causalcompass,
-  title = {{CausalCompass}: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
-  author = {Yi, Huiyang and Shen, Xiaojian and Wu, Yonggang and Chen, Duxin and Wang, He and Yu, Wenwu},
-  booktitle = {Advances in Neural Information Processing Systems},
-  year = {2026},
-  url = {https://arxiv.org/abs/2602.07915}
+@article{yi2026causalcompass,
+  title={CausalCompass: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
+  author={Yi, Huiyang and Shen, Xiaojian and Wu, Yonggang and Chen, Duxin and Wang, He and Yu, Wenwu},
+  journal={arXiv preprint arXiv:2602.07915},
+  year={2026}
 }
 ```
 
