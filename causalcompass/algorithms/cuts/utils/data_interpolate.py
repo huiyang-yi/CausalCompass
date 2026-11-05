@@ -1,13 +1,11 @@
 from scipy import interpolate
 import numpy as np
 from copy import deepcopy
-from einops import rearrange
-from sklearn.datasets import make_friedman2
-from sklearn.gaussian_process import GaussianProcessRegressor
-from sklearn.gaussian_process.kernels import DotProduct, WhiteKernel
 
 
 def interp_masked_data(data, mask, interp="zoh"):
+    if interp not in ("zoh", "linear"):
+        raise ValueError("Supported missing-data imputation methods: zoh, linear")
     if interp == "zoh":
         T, D = data.shape
         new_data = deepcopy(data)
@@ -22,35 +20,12 @@ def interp_masked_data(data, mask, interp="zoh"):
         return func(new_x)
 
 def interp_multivar_data(data, mask, interp="zoh"):
-    if interp == "GP":
-        return interp_multivar_with_gauss_process(data, mask)
-    else:
-        new_data = np.zeros_like(data)
-        T, N, D = data.shape
-        for node_i in range(N):
-            new_data[:,node_i,:] = interp_masked_data(data[:,node_i,:], mask[:,node_i], interp=interp)
-        return new_data
-
-
-def interp_multivar_with_gauss_process(data, mask):
-    data = data * mask
-    x = rearrange(data[:-1], "t n d -> t (n d)")
-    y = rearrange(data[1:], "t n d -> t (n d)")
-        
-    gpr = GaussianProcessRegressor(random_state=0).fit(x, y)
-    pred = gpr.predict(y)
-    pred = rearrange(pred, "t (n d) -> t n d", n=data.shape[1])
-
+    if interp not in ("zoh", "linear"):
+        raise ValueError("Supported missing-data imputation methods: zoh, linear")
     new_data = np.zeros_like(data)
-    new_data[1:] = (mask * data)[1:] + (1 - mask)[1:] * pred
-    new_data[0] = data[0]
-    
+    _, N, _ = data.shape
+    for node_i in range(N):
+        new_data[:, node_i, :] = interp_masked_data(
+            data[:, node_i, :], mask[:, node_i], interp=interp
+        )
     return new_data
-
-
-if __name__=="__main__":
-    # data = np.array([[0,0],[1,2],[0,0],[2,3]])
-    # mask = np.array([0,1,0,1])
-    # print(interp_masked_data(data, mask))
-    
-    interp_multivar_with_gauss_process()

@@ -11,17 +11,14 @@ import os
 from copy import deepcopy
 
 import numpy as np
-from einops import rearrange
 from scipy import interpolate
-from sklearn.gaussian_process import GaussianProcessRegressor
 
 from .vanilla import simulate_lorenz_96, simulate_var
 
-SUPPORTED_MISSING_IMPUTATIONS = ("zoh", "linear", "GP")
+SUPPORTED_MISSING_IMPUTATIONS = ("zoh", "linear")
 _IMPUTATION_FILENAME_TOKENS = {
     "zoh": "zoh",
     "linear": "linear",
-    "GP": "gp",
 }
 
 
@@ -36,8 +33,6 @@ def normalize_missing_imputation_method(interp):
         return "zoh"
     if value_lower == "linear":
         return "linear"
-    if value_lower == "gp":
-        return "GP"
 
     raise ValueError(
         f"Unsupported missing-data imputation method: {interp}. "
@@ -123,7 +118,7 @@ def generate_missing_var(
         variables; alternatively, you can pass a list of variable indices such
         as ``[0, 2, 4]`` to mask only selected variables.
     interp : str, default 'zoh'
-        Interpolation method. Supported values are 'zoh', 'linear', and 'GP'.
+        Interpolation method. Supported values are 'zoh' and 'linear'.
 
     Returns
     -------
@@ -203,7 +198,7 @@ def generate_missing_lorenz_96(
         variables; alternatively, you can pass a list of variable indices such
         as ``[0, 2, 4]`` to mask only selected variables.
     interp : str, default 'zoh'
-        Interpolation method. Supported values are 'zoh', 'linear', and 'GP'.
+        Interpolation method. Supported values are 'zoh' and 'linear'.
 
     Returns
     -------
@@ -326,7 +321,7 @@ def generate_and_save_missing_dataset_variants(
     T,
     seed,
     missing_prob,
-    interp_methods=("zoh", "linear", "GP"),
+    interp_methods=("zoh", "linear"),
     F=None,
     output_dir=None,
     lag=3,
@@ -334,6 +329,13 @@ def generate_and_save_missing_dataset_variants(
     **generate_kwargs,
 ):
     """Generate and save multiple imputation variants for the same missing mask."""
+    if missing_config is None:
+        missing_config = {
+            "random_missing": {
+                "missing_prob": missing_prob,
+                "missing_var": "all",
+            }
+        }
     saved_paths = {}
     for interp in interp_methods:
         canonical_interp = normalize_missing_imputation_method(interp)
@@ -406,32 +408,8 @@ def interp_multivar_data(data, mask, interp="zoh"):
         data = data[..., np.newaxis]  # (T, p, 1)
         mask = mask[..., np.newaxis]  # (T, p, 1)
 
-    if interp == "GP":
-        return interp_multivar_with_gauss_process(data, mask)
-
     new_data = np.zeros_like(data)
     _, N, _ = data.shape
     for node_i in range(N):
         new_data[:, node_i, :] = interp_masked_data(data[:, node_i, :], mask[:, node_i], interp=interp)
-    return new_data
-
-
-
-def interp_multivar_with_gauss_process(data, mask):
-    if data.ndim == 2:
-        data = data[..., np.newaxis]  # (T, p, 1)
-        mask = mask[..., np.newaxis]  # (T, p, 1)
-
-    data = data * mask
-    x = rearrange(data[:-1], "t n d -> t (n d)")
-    y = rearrange(data[1:], "t n d -> t (n d)")
-
-    gpr = GaussianProcessRegressor(random_state=0).fit(x, y)
-    pred = gpr.predict(y)
-    pred = rearrange(pred, "t (n d) -> t n d", n=data.shape[1])
-
-    new_data = np.zeros_like(data)
-    new_data[1:] = (mask * data)[1:] + (1 - mask)[1:] * pred
-    new_data[0] = data[0]
-
     return new_data

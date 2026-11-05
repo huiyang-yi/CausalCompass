@@ -17,7 +17,7 @@ autodoc_mock_imports = [
 project = 'CausalCompass'
 copyright = '2026, CausalCompass Team'
 author = 'Xiaojian Shen, Huiyang Yi'
-release = '0.1.0'
+release = '0.2.0'
 
 # 4. 加载插件
 extensions = [

@@ -1,5 +1,6 @@
 import torch
 import numpy as np
+from scipy.special import expit
 import tempfile
 import shutil
 from types import SimpleNamespace
@@ -26,6 +27,15 @@ class CUTSPlus(BaseCausalAlgorithm):
     device : str, default 'cuda'
         Computation device
 
+    Notes
+    -----
+    ``run`` returns raw logit scores. Pass them unchanged to ``eval``:
+    AUROC/AUPRC use the raw scores, while NSHD applies sigmoid exactly once.
+    For this algorithm, ``shd_thresholds`` are probability-scale thresholds.
+    With no explicit thresholds, NSHD minimizes error against the ground-truth
+    graph over an automatic threshold grid; this is a benchmark evaluation,
+    not threshold selection for an unknown graph. The ``shd`` key stores NSHD.
+
     Examples
     --------
     >>> from causalcompass.algorithms import CUTSPlus
@@ -48,6 +58,13 @@ class CUTSPlus(BaseCausalAlgorithm):
             'device': device
         }
 
+    def _compute_continuous_shd(self, y_true, y_scores, shd_thresholds=None):
+        """Compute NSHD from probabilities derived from raw CUTS+ logits."""
+        probabilities = expit(np.asarray(y_scores, dtype=float))
+        return super()._compute_continuous_shd(
+            y_true, probabilities, shd_thresholds=shd_thresholds
+        )
+
     def run(self, X, true_cm, mask=None):
         """
         Run CUTS+ algorithm.
@@ -55,7 +72,7 @@ class CUTSPlus(BaseCausalAlgorithm):
         :param X: Time series data, shape (T, p).
         :param mask: Data mask, shape (T, p). 1 for observed, 0 for missing. Defaults to all 1s.
         :param true_cm: True causal matrix (p, p).
-        :return: Predicted adjacency matrix, shape (p, p).
+        :return: Raw logit score matrix, shape (p, p). Pass unchanged to eval().
         """
         # Handle defaults
         if mask is None:

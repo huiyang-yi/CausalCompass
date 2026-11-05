@@ -25,7 +25,7 @@
 CausalCompass
 ==============
 
-**CausalCompass** is a Python package that provides a flexible and extensible benchmark suite for evaluating the robustness of **time-series causal discovery (TSCD)** methods under **misspecified modeling assumptions**. For more details, please refer to the `Document <https://causalcompass.readthedocs.io/>`_.
+**CausalCompass** is a Python package that provides a flexible and extensible benchmark framework for evaluating the robustness of **time-series causal discovery (TSCD)** methods under **misspecified modeling assumptions**. For more details, please refer to the `Document <https://causalcompass.readthedocs.io/>`_.
 
 .. image:: _static/auprc_performance_radar_plot.png
    :width: 80%
@@ -36,7 +36,8 @@ CausalCompass
 Abstract
 ^^^^^^^^
 
-Causal discovery from time series is a fundamental task in machine learning. However, its widespread adoption is hindered by a reliance on untestable causal assumptions and by the lack of robustness-oriented evaluation in existing benchmarks. To address these challenges, we propose **CausalCompass**, a flexible and extensible benchmark suite designed to assess the robustness of time-series causal discovery (TSCD) methods under violations of modeling assumptions. To demonstrate the practical utility of CausalCompass, we conduct extensive benchmarking of representative TSCD algorithms across eight assumption-violation scenarios. Our experimental results indicate that no single method consistently attains optimal performance across all settings. Nevertheless, the methods exhibiting superior overall performance across diverse scenarios are almost invariably deep learning-based approaches. We further provide hyperparameter sensitivity analyses to deepen the understanding of these findings. We also find, somewhat surprisingly, that NTS-NOTEARS relies heavily on standardized preprocessing in practice, performing poorly in the vanilla setting but exhibiting strong performance after standardization. Finally, our work aims to provide a comprehensive and systematic evaluation of TSCD methods under assumption violations, thereby facilitating their broader adoption in real-world applications.
+Causal discovery from time series is a fundamental task in machine learning. However, its widespread adoption is hindered by a reliance on untestable causal assumptions and by the lack of robustness-oriented evaluation in existing benchmarks. To address these challenges, we propose CausalCompass, a flexible and extensible benchmark framework designed to assess the robustness of time-series causal discovery (TSCD) methods under violations of modeling assumptions. To demonstrate the practical utility of CausalCompass, we conduct extensive benchmarking of representative TSCD algorithms across eight assumption-violation scenarios. Our experimental results indicate that no single method consistently attains optimal performance across all settings. Nevertheless, in most scenarios, the methods exhibiting superior overall performance are deep learning-based approaches. We further provide hyperparameter sensitivity analyses to deepen the understanding of these findings. We additionally conduct ablation experiments to explain the strong performance of deep learning-based methods under assumption violations. We also find that NTS-NOTEARS relies on standardized preprocessing in practice, performing poorly in the vanilla setting but exhibiting strong performance after standardization. Finally, our work aims to provide a comprehensive and systematic evaluation of TSCD methods under assumption violations, thereby facilitating their broader adoption in real-world applications. The user-friendly implementation, documentation and datasets are available at https://github.com/huiyang-yi/CausalCompass.
+
 
 Key Features
 ^^^^^^^^^^^^
@@ -57,8 +58,9 @@ Key Features
 Datasets
 ^^^^^^^^
 
-The ``datasets/`` directory contains sample datasets. Complete datasets can be generated using the provided scripts. For convenience and reproducibility, the complete datasets archive is publicly available at
+The benchmark datasets are available on
 `Kaggle <https://www.kaggle.com/datasets/anonymousauthors/assumption-violation-datasets/data>`_.
+Dataset-generation functions are provided in ``causalcompass/datasets/``.
 
 The generated datasets follow the naming convention::
 
@@ -74,12 +76,14 @@ If you use this code or datasets in your research, please cite:
 
 .. code-block:: bibtex
 
-   @misc{yi2026causalcompass,
-     title   = {{CausalCompass}: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
-     author  = {Yi, Huiyang and Shen, Xiaojian and Wu, Yonggang and Chen, Duxin and Wang, He and Yu, Wenwu},
-     year    = {2026},
-     note    = {Under review as a conference paper}
+   @inproceedings{yi2026causalcompass,
+     title = {{CausalCompass}: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
+     author = {Yi, Huiyang and Shen, Xiaojian and Wu, Yonggang and Chen, Duxin and Wang, He and Yu, Wenwu},
+     booktitle = {Advances in Neural Information Processing Systems},
+     year = {2026},
+     url = {https://arxiv.org/abs/2602.07915}
    }
+
 
 License
 ^^^^^^^

@@ -67,4 +67,5 @@ class VARLiNGAM(BaseCausalAlgorithm):
         }
 
     def _threshold_from_raw(self, raw_result, threshold):
-        return (raw_result['score_matrix'] > threshold).astype(int).T
+        """Return a binary graph where entry [i, j] represents X_j -> X_i."""
+        return (raw_result['score_matrix'] > threshold).astype(int)

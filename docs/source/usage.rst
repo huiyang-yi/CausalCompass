@@ -90,3 +90,38 @@ This example benchmarks all 11 TSCD algorithms under the measurement error scena
        all_metrics, no_diag_metrics = model.eval(true_adj, predicted_adj)
        print(f"[{name}] AUROC={all_metrics['auroc']:.3f}, AUPRC={all_metrics['auprc']:.3f}, NSHD={all_metrics['shd']:.3f} | "
              f"No-Diag AUROC={no_diag_metrics['auroc']:.3f}, AUPRC={no_diag_metrics['auprc']:.3f}, NSHD={no_diag_metrics['shd']:.3f}")  # shd stores normalized SHD (NSHD)
+
+
+CUTS+ scores and NSHD
+------------------------
+
+``CUTSPlus.run`` returns raw logit scores. Pass them unchanged to ``eval``.
+AUROC and AUPRC use those raw scores; only NSHD converts them to probabilities
+with sigmoid, exactly once. Do not apply sigmoid before calling ``eval``.
+``shd_thresholds`` therefore refers to probability-scale thresholds for CUTS+.
+The returned ``shd`` field stores normalized SHD (NSHD).
+
+.. code-block:: python
+
+   model = CUTSPlus(device=device)
+   scores = model.run(data, true_cm=true_adj)
+   all_metrics, no_diag_metrics = model.eval(
+       true_adj, scores, shd_thresholds=[0.5]
+   )
+
+Without explicit thresholds, NSHD searches a probability-scale grid and
+reports the minimum against the known ground-truth graph. This is a benchmark
+evaluation protocol, not a way to choose a threshold for an unknown graph.
+
+Missing-data imputation
+-----------------------
+
+This package version supports ZOH and linear imputation. GP-imputation
+experiments reported in the paper are not exposed through the public package
+API. Passing ``interp="GP"`` or ``interp="gp"`` raises ``ValueError``.
+The paper's GP experiments and their research artifacts are separate from
+the supported interpolation methods in this package.
+
+The batch generator uses ``missing_prob`` when ``missing_config`` is omitted.
+An explicitly supplied ``missing_config`` takes precedence. Use the same
+seed to compare ZOH and linear interpolation on the same data and missing mask.

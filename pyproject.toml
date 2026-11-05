@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "causalcompass"
-version = "0.1.2"
+version = "0.2.0"
 description = "Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -52,7 +52,10 @@ docs = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/huiyang-yi/CausalCompass"
+Homepage = "https://huiyang-yi.github.io/CausalCompass/"
+Documentation = "https://causalcompass.readthedocs.io/en/latest/"
+Repository = "https://github.com/huiyang-yi/CausalCompass"
+Issues = "https://github.com/huiyang-yi/CausalCompass/issues"
 
 [tool.setuptools.packages.find]
 include = ["causalcompass*"]

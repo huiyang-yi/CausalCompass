@@ -78,7 +78,6 @@ secrets.yaml
 !.vscode/extensions.json
 .idea/
 .claude/
-tests/
 *.swp
 *.swo
 .DS_Store
