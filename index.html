@@ -104,6 +104,8 @@
   <div class="container">
     <h1>CausalCompass: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios</h1>
 
+    <p class="caption"><strong>NeurIPS 2026</strong></p>
+
     <div class="authors">
       <span>Huiyang Yi</span><span class="sup">1</span>,
       <span>Xiaojian Shen</span><span class="sup">2</span>,
@@ -119,10 +121,7 @@
       <span class="sup">†</span>Corresponding Author
     </div>
 
-    <!-- <div class="links">
-      <a href="#" class="btn btn-disabled">Paper (Under Review)</a>
-      <a href="https://github.com/shenxiaojian/CausalCompass" class="btn">GitHub Repo</a>
-    </div> -->
+
     <div class="links">
       <p align="center">
         <a href="https://arxiv.org/abs/2602.07915"><img src="https://img.shields.io/badge/arXiv-2602.07915-b31b1b.svg" alt="arXiv"></a>
@@ -135,25 +134,18 @@
 
     <h2>Abstract</h2>
     <p class="abstract-text">
-      Causal discovery from time series is a fundamental task in machine learning. However, its widespread adoption
-      is hindered by a reliance on untestable causal assumptions and by the lack of robustness-oriented evaluation in
-      existing benchmarks. To address these challenges, we propose <strong>CausalCompass</strong>, a flexible and
-      extensible benchmark suite designed to assess the robustness of time-series causal discovery methods under
-      violations of modeling assumptions. Our experimental results indicate that no single method consistently
-      attains optimal performance across all settings; methods with superior overall performance are almost
-      invariably deep learning-based. We also provide hyperparameter sensitivity analyses and highlight the strong
-      dependence of NTS-NOTEARS on standardized preprocessing.
+      Causal discovery from time series is a fundamental task in machine learning. However, its widespread adoption is hindered by a reliance on untestable causal assumptions and by the lack of robustness-oriented evaluation in existing benchmarks. To address these challenges, we propose CausalCompass, a flexible and extensible benchmark framework designed to assess the robustness of time-series causal discovery (TSCD) methods under violations of modeling assumptions. To demonstrate the practical utility of CausalCompass, we conduct extensive benchmarking of representative TSCD algorithms across eight assumption-violation scenarios. Our experimental results indicate that no single method consistently attains optimal performance across all settings. Nevertheless, in most scenarios, the methods exhibiting superior overall performance are deep learning-based approaches. We further provide hyperparameter sensitivity analyses to deepen the understanding of these findings. We additionally conduct ablation experiments to explain the strong performance of deep learning-based methods under assumption violations. We also find that NTS-NOTEARS relies on standardized preprocessing in practice, performing poorly in the vanilla setting but exhibiting strong performance after standardization. Finally, our work aims to provide a comprehensive and systematic evaluation of TSCD methods under assumption violations, thereby facilitating their broader adoption in real-world applications. The user-friendly implementation, documentation and datasets are available at https://github.com/huiyang-yi/CausalCompass.
     </p>
 
     <h2>Overview</h2>
     <p class="caption">
-      <strong>Table 1:</strong> Summary of the assumptions associated with each algorithm and the types of causal graphs they are designed to recover.
+      <strong>Table 1:</strong> Summary of the assumptions associated with each algorithm and the types of causal graphs they are designed to recover. “Sum.” denotes summary graphs and “Win.” window graphs. CUTS+ outputs a summary graph.
     </p>
     <img src="./images/assumptions.png" class="teaser-img" alt="Assumption Table">
 
     <h2>Experimental Results</h2>
     <img src="./images/results1.png" class="teaser-img" alt="Experimental Results 1">
-    <p class="caption"><strong>Figure 1:</strong> Linear and nonlinear settings across vanilla and eight assumption-violation scenarios (10 nodes, T = 1000).</p>
+    <p class="caption"><strong>Figure 1:</strong> Linear and nonlinear settings across vanilla and eight assumption-violation scenarios (10 nodes, T = 1000). AUROC and AUPRC: higher is better; NSHD: lower is better. Results over 5 trials; the best deep learning results are shown.</p>
 
     <img src="./images/results3.png" class="teaser-img" alt="Experimental Results 3">
     <p class="caption"><strong>Figure 3:</strong> Nonlinear settings across vanilla and eight assumption-violation scenarios (10 nodes, F = 40).</p>
@@ -164,17 +156,17 @@
     <img src="./images/results4.png" class="teaser-img" alt="Experimental Results 4">
     <p class="caption"><strong>Figure 6:</strong> Nonlinear settings across vanilla and eight assumption-violation scenarios (15 nodes, F = 40).</p>
 
-    <p class="caption"><strong>Table 3:</strong> Summary of methods' performances across all scenarios and configurations.</p>
+    <p class="caption"><strong>Table 2:</strong> Summary of methods' performances across all scenarios and configurations.</p>
     <img src="./images/summary_results.png" class="teaser-img summary-img" alt="Summary of methods performances">
 
     <h2>Citation</h2>
-    <pre>@misc{yi2026causalcompass,
-  title   = {{CausalCompass}: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
-  author  = {Yi, Huiyang and Shen, Xiaojian and Wu, Yonggang and Chen, Duxin and Wang, He and Yu, Wenwu},
-  year    = {2026},
-  note    = {Under review as a conference paper}
-}
-</pre>
+    <pre>@inproceedings{yi2026causalcompass,
+  title = {{CausalCompass}: Evaluating the Robustness of Time-Series Causal Discovery in Misspecified Scenarios},
+  author = {Yi, Huiyang and Shen, Xiaojian and Wu, Yonggang and Chen, Duxin and Wang, He and Yu, Wenwu},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year = {2026},
+  url = {https://arxiv.org/abs/2602.07915}
+}</pre>
   </div>
 </body>
 </html>
