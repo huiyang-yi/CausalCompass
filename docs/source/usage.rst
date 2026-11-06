@@ -90,3 +90,11 @@ This example benchmarks all 11 TSCD algorithms under the measurement error scena
        all_metrics, no_diag_metrics = model.eval(true_adj, predicted_adj)
        print(f"[{name}] AUROC={all_metrics['auroc']:.3f}, AUPRC={all_metrics['auprc']:.3f}, NSHD={all_metrics['shd']:.3f} | "
              f"No-Diag AUROC={no_diag_metrics['auroc']:.3f}, AUPRC={no_diag_metrics['auprc']:.3f}, NSHD={no_diag_metrics['shd']:.3f}")  # shd stores normalized SHD (NSHD)
+
+
+Note
+^^^^
+
+- For PCMCI, VARLiNGAM, DyNotears, NTSNotears, VAR, and LGC, ``run()`` returns a binary adjacency matrix. Continuous scores can be obtained from ``run_raw()`` after extracting and, where needed, transforming the raw results. Set ``model._eval_output_type = "continuous"`` and pass these scores to ``eval()`` without specifying ``shd_thresholds`` to obtain the minimum NSHD over automatically generated thresholds.
+
+- For CMLP, CLSTM, CUTS, CUTS+, and TSCI, ``run()`` already returns continuous scores, and ``eval()`` uses automatic threshold search for NSHD by default.

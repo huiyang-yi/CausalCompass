@@ -111,6 +111,11 @@ print(f"NSHD (no diag): {no_diag_metrics['shd']:.3f}")  # shd stores normalized 
 
 ---
 
+## Note
+
+- For PCMCI, VARLiNGAM, DyNotears, NTSNotears, VAR, and LGC, `run()` returns a binary adjacency matrix. Continuous scores can be obtained from `run_raw()` after extracting and, where needed, transforming the raw results. Set `model._eval_output_type = "continuous"` and pass these scores to `eval()` without specifying `shd_thresholds` to obtain the minimum NSHD over automatically generated thresholds.
+- For CMLP, CLSTM, CUTS, CUTS+, and TSCI, `run()` already returns continuous scores, and `eval()` uses automatic threshold search for NSHD by default.
+
 ## Citation
 
 If you find this work useful, please cite our paper:
